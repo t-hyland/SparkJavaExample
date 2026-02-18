@@ -35,18 +35,18 @@ public class Main {
         sparkExample.close();
 
 
-//        Dataset<Row> teamStats = sparkExample.getTeamStats("PHI");
+       Dataset<Row> teamStats = sparkExample.getTeamStats("PHI");
 
-        // Gets rid of previous output
-//        File dir = new File(SAVE_PATH);
-//
-//        if (dir.exists()) {
-//            deleteDirectory(dir);
-//        }
-//        dir.mkdir();
-//
-//        //Saves dataframe to ./teamStats folder
-//        System.out.println("Saving");
-//        teamStats.repartition(1).write().mode("overwrite").option("header", true).csv(SAVE_PATH);
+        Gets rid of previous output
+       File dir = new File(SAVE_PATH);
+
+       if (dir.exists()) {
+           deleteDirectory(dir);
+       }
+       dir.mkdir();
+
+       //Saves dataframe to ./teamStats folder
+       System.out.println("Saving");
+       teamStats.repartition(1).write().mode("overwrite").option("header", true).csv(SAVE_PATH);
     }
 }
